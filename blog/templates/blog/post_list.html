@@ -7,12 +7,14 @@
         <div>
             <h1><a href="#">Django Gilrs Blog</a></h1>
         </div>
-
-        <div>
-            <p>Publicado em 29.07.2017, 12:11</p>
-            <h2><a href="">Meu primeiro post</a><h2>
-            <p>Um monte de texto aqui</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>Publicado em {{post.created_date|date:"d-N-Y h:i"}}</p>
+                <h2><a href="">{{post.title}}</a><h2>
+                <p>{{post.text|linebreaksbr}}</p>
+            </div>
+        {% endfor %}
+        
 
         <div>
             <p>Publicado em 29.07.2017, 12:13</p>
